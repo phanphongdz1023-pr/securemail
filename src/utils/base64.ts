@@ -27,5 +27,5 @@ export function arrayBufferToBase64url(buffer: ArrayBuffer): string {
 
 /** Decode base64url string to ArrayBuffer */
 export function base64urlToArrayBuffer(str: string): ArrayBuffer {
-  return fromBase64url(str).buffer
+  return fromBase64url(str).buffer as ArrayBuffer
 }

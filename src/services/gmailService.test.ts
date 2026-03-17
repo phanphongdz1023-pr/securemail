@@ -9,7 +9,7 @@ beforeEach(() => {
 
 describe('gmailService', () => {
   it('listMessages calls Gmail API with correct label query', async () => {
-    const mockFetch = vi.spyOn(global, 'fetch').mockResolvedValue({
+    const mockFetch = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({ messages: [{ id: '1', threadId: 'abc' }] }),
     } as Response)
@@ -25,7 +25,7 @@ describe('gmailService', () => {
   })
 
   it('sendMessage calls POST /messages/send', async () => {
-    const mockFetch = vi.spyOn(global, 'fetch').mockResolvedValue({
+    const mockFetch = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({ id: 'msg1' }),
     } as Response)
@@ -39,7 +39,7 @@ describe('gmailService', () => {
   })
 
   it('throws on non-ok response', async () => {
-    vi.spyOn(global, 'fetch').mockResolvedValue({
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
       ok: false,
       status: 401,
       json: async () => ({ error: 'Unauthorized' }),

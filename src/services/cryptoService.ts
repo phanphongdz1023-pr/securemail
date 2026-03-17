@@ -13,7 +13,7 @@ async function importPasswordMaterial(password: string): Promise<CryptoKey> {
 async function deriveWrappingKey(password: string, salt: Uint8Array): Promise<CryptoKey> {
   const material = await importPasswordMaterial(password)
   return crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt, iterations: 100_000, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt: salt as BufferSource, iterations: 100_000, hash: 'SHA-256' },
     material,
     { name: 'AES-KW', length: 256 },
     false,

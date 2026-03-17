@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { TopBar } from './TopBar'
 import { Sidebar } from './Sidebar'
 import { MailList } from './MailList'

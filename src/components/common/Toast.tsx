@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import type { ReactNode } from 'react'
 
 interface ToastProps {
   message: string
@@ -45,7 +46,6 @@ export function Toast({ message, type, onDismiss }: ToastProps) {
 }
 
 // Toast manager — add to App root
-import { useState, useCallback, ReactNode } from 'react'
 
 interface ToastItem {
   id: number
